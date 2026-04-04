@@ -23,7 +23,7 @@ climate-change projections under SSP2-4.5 (2041–2060).
 | **Food Vulnerability Index (FVI)** | Undernourishment · import dependency · rural poverty |
 | **Climate Risk Assessment** | ASI delta under SSP2-4.5 vs 1970–2000 baseline |
 | **Interactive Map** | Folium choropleth — FVI + ASI layers · country popups |
-| **Power BI Dashboard** | 6 visuals · slicers · KPI cards |
+| **Power BI Dashboard** | 5 visuals · slicers · KPI cards |
 
 ---
 
