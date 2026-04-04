@@ -49,12 +49,6 @@ Maize · Coffee Arabica · Rice · Common Bean · Sugarcane
 
 ---
 
-## Dashboard Preview
-
-![Dashboard](dashboard_preview.png)
-
----
-
 ## Data Sources
 
 - WorldClim 2.1 — historical climate averages
