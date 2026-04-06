@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_aba2e404cd245176ee0dce4e3e9ced64 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position:fixed;bottom:25px;left:25px;z-index:1000;
+background:white;padding:14px 16px;border-radius:12px;
+border:2px solid #e8f5e9;font-family:Georgia,serif;font-size:12px;
+line-height:2;box-shadow:0 4px 15px rgba(0,0,0,0.1)">
+<b style="color:#1e8449;font-size:13px">🌿 Plato Vivo</b><br>
+<span style="font-size:10px;color:#888">De la Granja a la Mesa · Costa Rica</span><br><br>
+<span style="color:#27ae60">●</span> Feria agroecológica<br>
+<span style="color:#e74c3c">●</span> Restaurante farm to table<br>
+<span style="color:#8e44ad">●</span> Experiencia agroecoturismo<br>
+<span style="color:#e67e22">●</span> Finca con venta directa<br>
+<hr style="border-color:#eee;margin:8px 0">
+<span style="font-size:10px;color:#888">
+💰 $ Accesible · $$ Moderado<br>
+$$$ Premium · $$$$ Alta gama<br>
+</span>
+<hr style="border-color:#eee;margin:8px 0">
+<span style="font-size:9px;color:#bbb">
+⭐ Marcador grande = Destacado<br>
+Clic para info, horarios y contacto<br>
+@platovivo.cr
+</span>
+</div>
+    
+<div style="position:fixed;top:15px;left:50%;transform:translateX(-50%);
+z-index:1000;background:white;padding:10px 22px;border-radius:25px;
+border:2px solid #a9dfbf;font-family:Georgia,serif;
+box-shadow:0 3px 12px rgba(0,0,0,0.12);text-align:center;white-space:nowrap">
+<span style="color:#1e8449;font-weight:bold;font-size:14px">
+  🌿 De la Granja a la Mesa
+</span>
+<span style="color:#aaa;font-size:11px;margin-left:8px">
+  Costa Rica · Plato Vivo
+</span>
+</div>
+    
+            <div class="folium-map" id="map_aba2e404cd245176ee0dce4e3e9ced64" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_aba2e404cd245176ee0dce4e3e9ced64 = L.map(
+                "map_aba2e404cd245176ee0dce4e3e9ced64",
+                {
+                    center: [9.9, -84.1],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 8,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ded1bc0ad587ebf93d40c4d17c93786f = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_ded1bc0ad587ebf93d40c4d17c93786f.addTo(map_aba2e404cd245176ee0dce4e3e9ced64);
+        
+    
+            var feature_group_97e862a35e4c5d288126eabdd4a2ff08 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_46eff80d7288ad62992969bd47e9ed0c = L.circleMarker(
+                [9.9452, -84.0748],
+                {"bubblingMouseEvents": true, "color": "#4A5A1F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6B7C2E", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_97e862a35e4c5d288126eabdd4a2ff08);
+        
+    
+        var popup_69119da29befdb67d6ad1bf795b30964 = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_cfa3d855d7f442a09e47a7266ba4af6f = $(`<div id="html_cfa3d855d7f442a09e47a7266ba4af6f" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #6B7C2E;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#6B7C2E;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🌾 Feria agroecológica         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Feria Verde de Aranjuez<span style="background:#f39c12;color:white;padding:2px 8px;border-radius:10px;font-size:9px;font-weight:bold;margin-left:5px">⭐ Destacado</span>         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 Barrio Aranjuez, San José</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Una de las ferias orgánicas pioneras del país. Funciona como pulmón de encuentro cultural urbano alrededor de la comida saludable. Productos certificados orgánicos, panadería de masa madre y arte local.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Productos orgánicos certificados</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Masa madre</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Arte local</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Comidas preparadas</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Sábados 7:00 am – 12:30 pm         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#8B7355;font-weight:bold">             $$           </span>           · Entrada gratuita         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#eafaf1;color:#27ae60;border:1px solid #a9dfbf;padding:2px 7px;border-radius:10px;font-size:9px">✓ Sin reserva</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/feriaverde" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://feriaverde.org" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#6B7C2E;color:#F5F0E8">🌐 Web</a><a href="https://wa.me/50684593421?text=Hola%2C%20vi%20su%20lugar%20en%20Plato%20Vivo%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#4A5A1F;color:#F5F0E8">💬 WhatsApp</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_69119da29befdb67d6ad1bf795b30964.setContent(html_cfa3d855d7f442a09e47a7266ba4af6f);
+            
+        
+
+        circle_marker_46eff80d7288ad62992969bd47e9ed0c.bindPopup(popup_69119da29befdb67d6ad1bf795b30964)
+        ;
+
+        
+    
+    
+            circle_marker_46eff80d7288ad62992969bd47e9ed0c.bindTooltip(
+                `<div>
+                     🌾 Feria Verde de Aranjuez · Barrio Aranjuez, San José
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ba2fac5a37c675c26011eebb61cf8298 = L.circleMarker(
+                [10.3317, -84.4363],
+                {"bubblingMouseEvents": true, "color": "#4A5A1F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6B7C2E", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_97e862a35e4c5d288126eabdd4a2ff08);
+        
+    
+        var popup_8fc5e9b914f784c5511796a7d4606597 = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_54d343d4fc81192e20edf4655be8bf8d = $(`<div id="html_54d343d4fc81192e20edf4655be8bf8d" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #6B7C2E;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#6B7C2E;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🌾 Feria agroecológica         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Feria Agroecológica RESCAMUR<span style="background:#f39c12;color:white;padding:2px 8px;border-radius:10px;font-size:9px;font-weight:bold;margin-left:5px">⭐ Destacado</span>         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 Ciudad Quesada, San Carlos</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Iniciativa de la Red Sancarleña de Mujeres Rurales. Promueve agricultura libre de pesticidas con enfoque en empoderamiento femenino y comercio justo directo del productor al consumidor.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Hortalizas</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Tubérculos</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Plantas medicinales</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Productos artesanales</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Viernes y sábados 7:00 am – 5:00 pm         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#6B7C2E;font-weight:bold">             $           </span>           · Entrada gratuita         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#eafaf1;color:#27ae60;border:1px solid #a9dfbf;padding:2px 7px;border-radius:10px;font-size:9px">✓ Sin reserva</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/rescamur.cr" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://www.facebook.com/RedSancarlenadeMujeresRurales/" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#6B7C2E;color:#F5F0E8">🌐 Web</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_8fc5e9b914f784c5511796a7d4606597.setContent(html_54d343d4fc81192e20edf4655be8bf8d);
+            
+        
+
+        circle_marker_ba2fac5a37c675c26011eebb61cf8298.bindPopup(popup_8fc5e9b914f784c5511796a7d4606597)
+        ;
+
+        
+    
+    
+            circle_marker_ba2fac5a37c675c26011eebb61cf8298.bindTooltip(
+                `<div>
+                     🌾 Feria Agroecológica RESCAMUR · Ciudad Quesada, San Carlos
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3ebd9707a9f9a35e6ee4f1365bc21aad = L.circleMarker(
+                [10.09, -84.472],
+                {"bubblingMouseEvents": true, "color": "#4A5A1F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6B7C2E", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 1.8}
+            ).addTo(feature_group_97e862a35e4c5d288126eabdd4a2ff08);
+        
+    
+        var popup_697fbb197b9a73a115d3df3611826176 = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_d394a858d61e0df01cb9b47b0d36543e = $(`<div id="html_d394a858d61e0df01cb9b47b0d36543e" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #6B7C2E;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#6B7C2E;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🌾 Feria agroecológica         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Mercadito Agroecológico Ramonense         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 San Ramón, Alajuela</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Espacio autogestionado por productores de occidente enfocado en soberanía alimentaria. Fomenta el consumo directo, ético y sin intermediarios con biopreparados para cultivos.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Vegetales orgánicos</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Almácigos</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Hongos</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Panadería artesanal</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Sábados 7:00 am – 12:00 pm         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#6B7C2E;font-weight:bold">             $           </span>           · Entrada gratuita         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#eafaf1;color:#27ae60;border:1px solid #a9dfbf;padding:2px 7px;border-radius:10px;font-size:9px">✓ Sin reserva</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/mercaditoagroecologicoramonense" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://www.facebook.com/mercaditoagroecologicoramonense" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#6B7C2E;color:#F5F0E8">🌐 Web</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_697fbb197b9a73a115d3df3611826176.setContent(html_d394a858d61e0df01cb9b47b0d36543e);
+            
+        
+
+        circle_marker_3ebd9707a9f9a35e6ee4f1365bc21aad.bindPopup(popup_697fbb197b9a73a115d3df3611826176)
+        ;
+
+        
+    
+    
+            circle_marker_3ebd9707a9f9a35e6ee4f1365bc21aad.bindTooltip(
+                `<div>
+                     🌾 Mercadito Agroecológico Ramonense · San Ramón, Alajuela
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_15b285cae3d73a0e1473b9b6b8d6d54d = L.circleMarker(
+                [9.97, -84.52],
+                {"bubblingMouseEvents": true, "color": "#4A5A1F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6B7C2E", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 1.8}
+            ).addTo(feature_group_97e862a35e4c5d288126eabdd4a2ff08);
+        
+    
+        var popup_00bd2bf126a738aa1bea30397280b08a = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_9b9111e7931bc64370fd63ff05c53fc8 = $(`<div id="html_9b9111e7931bc64370fd63ff05c53fc8" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #6B7C2E;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#6B7C2E;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🌾 Feria agroecológica         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Mercado de la Tierra San Mateo         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 San Mateo, Alajuela</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Iniciativa comunitaria para reactivar la economía circular y la agricultura local. Funciona como punto de encuentro cultural, educativo y de comercio justo con productos sin agrotóxicos.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Frutas de temporada</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Semillas</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Artesanías</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Comidas típicas</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Domingos — eventos quincenales, consultar redes         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#6B7C2E;font-weight:bold">             $           </span>           · Entrada gratuita         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#eafaf1;color:#27ae60;border:1px solid #a9dfbf;padding:2px 7px;border-radius:10px;font-size:9px">✓ Sin reserva</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/mercadodelatierra.sanmateo" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://www.facebook.com/p/Mercado-de-la-Tierra-61550853938198/" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#6B7C2E;color:#F5F0E8">🌐 Web</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_00bd2bf126a738aa1bea30397280b08a.setContent(html_9b9111e7931bc64370fd63ff05c53fc8);
+            
+        
+
+        circle_marker_15b285cae3d73a0e1473b9b6b8d6d54d.bindPopup(popup_00bd2bf126a738aa1bea30397280b08a)
+        ;
+
+        
+    
+    
+            circle_marker_15b285cae3d73a0e1473b9b6b8d6d54d.bindTooltip(
+                `<div>
+                     🌾 Mercado de la Tierra San Mateo · San Mateo, Alajuela
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ddf94e85ba83d3bc1e1bca74913f0231 = L.circleMarker(
+                [9.928, -84.09],
+                {"bubblingMouseEvents": true, "color": "#4A5A1F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6B7C2E", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_97e862a35e4c5d288126eabdd4a2ff08);
+        
+    
+        var popup_d02e9e8c71dbe460e3559fbfb3addac8 = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_df5b71f7944045939703918166813c14 = $(`<div id="html_df5b71f7944045939703918166813c14" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #6B7C2E;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#6B7C2E;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🌾 Feria agroecológica         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Rganic Market<span style="background:#f39c12;color:white;padding:2px 8px;border-radius:10px;font-size:9px;font-weight:bold;margin-left:5px">⭐ Destacado</span>         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 Gran Área Metropolitana — entrega a domicilio</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Plataforma que conecta familias productoras orgánicas certificadas con consumidores de la GAM. Frutas, verduras, carnes de pastoreo y lácteos artesanales con entrega semanal a domicilio.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Orgánicos certificados</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Carnes de pastoreo</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Lácteos artesanales</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Despensa orgánica</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Pedidos web 24/7 · Entregas semanales         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#A0784A;font-weight:bold">             $$$           </span>           · Compra online         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#eafaf1;color:#27ae60;border:1px solid #a9dfbf;padding:2px 7px;border-radius:10px;font-size:9px">✓ Sin reserva</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/rganicmarket" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://rganicmarket.com" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#6B7C2E;color:#F5F0E8">🌐 Web</a><a href="https://wa.me/50685272727?text=Hola%2C%20vi%20su%20lugar%20en%20Plato%20Vivo%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#4A5A1F;color:#F5F0E8">💬 WhatsApp</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_d02e9e8c71dbe460e3559fbfb3addac8.setContent(html_df5b71f7944045939703918166813c14);
+            
+        
+
+        circle_marker_ddf94e85ba83d3bc1e1bca74913f0231.bindPopup(popup_d02e9e8c71dbe460e3559fbfb3addac8)
+        ;
+
+        
+    
+    
+            circle_marker_ddf94e85ba83d3bc1e1bca74913f0231.bindTooltip(
+                `<div>
+                     🌾 Rganic Market · Gran Área Metropolitana — entrega a domicilio
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d608a06cc26f82f5e188b067e6987b44 = L.circleMarker(
+                [9.922, -84.078],
+                {"bubblingMouseEvents": true, "color": "#4A5A1F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6B7C2E", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 1.8}
+            ).addTo(feature_group_97e862a35e4c5d288126eabdd4a2ff08);
+        
+    
+        var popup_ec168f2f73f3f7e96fd2b68eca4eb859 = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_e5581ec55d83288212edaa262a234b9e = $(`<div id="html_e5581ec55d83288212edaa262a234b9e" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #6B7C2E;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#6B7C2E;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🌾 Feria agroecológica         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Feria Orgánica El Trueque         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 Paso Ancho, San José</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Feria comunitaria histórica con productores de certificación orgánica. Ambiente cercano con precios justos, repostería casera y almácigos. Espacio para el intercambio solidario.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Frutas y verduras orgánicas</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Abarrotes saludables</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Repostería casera</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Almácigos</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Sábados 6:00 am – 12:00 pm         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#6B7C2E;font-weight:bold">             $           </span>           · Entrada gratuita         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#eafaf1;color:#27ae60;border:1px solid #a9dfbf;padding:2px 7px;border-radius:10px;font-size:9px">✓ Sin reserva</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/feriaeltrueque" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_ec168f2f73f3f7e96fd2b68eca4eb859.setContent(html_e5581ec55d83288212edaa262a234b9e);
+            
+        
+
+        circle_marker_d608a06cc26f82f5e188b067e6987b44.bindPopup(popup_ec168f2f73f3f7e96fd2b68eca4eb859)
+        ;
+
+        
+    
+    
+            circle_marker_d608a06cc26f82f5e188b067e6987b44.bindTooltip(
+                `<div>
+                     🌾 Feria Orgánica El Trueque · Paso Ancho, San José
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9114ababa7e1501ae46644c874accbda = L.circleMarker(
+                [8.5333, -83.3],
+                {"bubblingMouseEvents": true, "color": "#4A5A1F", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#6B7C2E", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 1.8}
+            ).addTo(feature_group_97e862a35e4c5d288126eabdd4a2ff08);
+        
+    
+        var popup_20af302181d879b08000e0f55440dd7d = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_a242e0e6787daf7e0a6aa70f9b3de767 = $(`<div id="html_a242e0e6787daf7e0a6aa70f9b3de767" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #6B7C2E;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#6B7C2E;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🌾 Feria agroecológica         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Biriteca Agroecológica         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 Puerto Jiménez, Puntarenas</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Red de productoras y productores del Pacífico Sur comprometidos con semillas criollas. Honran tradiciones indígenas y producción libre de venenos con maíz criollo y medicina natural.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Maíz criollo</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Frijoles locales</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Hortalizas</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Medicinas naturales</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Eventos periódicos — consultar Instagram         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#6B7C2E;font-weight:bold">             $           </span>           · Entrada gratuita         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#eafaf1;color:#27ae60;border:1px solid #a9dfbf;padding:2px 7px;border-radius:10px;font-size:9px">✓ Sin reserva</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/biritrecascr" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://www.facebook.com/biritrecascr/" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#6B7C2E;color:#F5F0E8">🌐 Web</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_20af302181d879b08000e0f55440dd7d.setContent(html_a242e0e6787daf7e0a6aa70f9b3de767);
+            
+        
+
+        circle_marker_9114ababa7e1501ae46644c874accbda.bindPopup(popup_20af302181d879b08000e0f55440dd7d)
+        ;
+
+        
+    
+    
+            circle_marker_9114ababa7e1501ae46644c874accbda.bindTooltip(
+                `<div>
+                     🌾 Biriteca Agroecológica · Puerto Jiménez, Puntarenas
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_97e862a35e4c5d288126eabdd4a2ff08.addTo(map_aba2e404cd245176ee0dce4e3e9ced64);
+        
+    
+            var feature_group_ac3b1e0284aabffbdd304d65063e7b80 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_73fbf89d3524796332555f80b140370f = L.circleMarker(
+                [9.938, -84.067],
+                {"bubblingMouseEvents": true, "color": "#5C3317", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8B4513", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_ac3b1e0284aabffbdd304d65063e7b80);
+        
+    
+        var popup_04225932675d9f0aad2df6f051f3f44a = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_758b17be4fac2cbf36d092573df4b12d = $(`<div id="html_758b17be4fac2cbf36d092573df4b12d" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #8B4513;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#8B4513;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🍽️ Restaurante farm to table         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Restaurante Sikwa<span style="background:#f39c12;color:white;padding:2px 8px;border-radius:10px;font-size:9px;font-weight:bold;margin-left:5px">⭐ Destacado</span>         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 Barrio Escalante, San José</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Centro de investigación gastronómica que trabaja con comunidades indígenas y productores agroecológicos. Menú tributo a la comida ancestral con cacao salvaje y tubérculos endémicos.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Alta cocina ancestral</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Cacao salvaje</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Tubérculos endémicos</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Coctelería botánica</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Mar–Sáb 5:00 pm – 10:00 pm         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#8B4513;font-weight:bold">             $$$$           </span>           · Solo con reserva         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#ebf5fb;color:#2980b9;border:1px solid #aed6f1;padding:2px 7px;border-radius:10px;font-size:9px">📅 Reserva requerida</span>                </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/sikwacr" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://sikwacr.com" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#6B7C2E;color:#F5F0E8">🌐 Web</a><a href="https://wa.me/50685166868?text=Hola%2C%20vi%20su%20lugar%20en%20Plato%20Vivo%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#4A5A1F;color:#F5F0E8">💬 WhatsApp</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_04225932675d9f0aad2df6f051f3f44a.setContent(html_758b17be4fac2cbf36d092573df4b12d);
+            
+        
+
+        circle_marker_73fbf89d3524796332555f80b140370f.bindPopup(popup_04225932675d9f0aad2df6f051f3f44a)
+        ;
+
+        
+    
+    
+            circle_marker_73fbf89d3524796332555f80b140370f.bindTooltip(
+                `<div>
+                     🍽️ Restaurante Sikwa · Barrio Escalante, San José
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c9289f925f697ce18c4d825065619934 = L.circleMarker(
+                [9.6405, -83.9353],
+                {"bubblingMouseEvents": true, "color": "#5C3317", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8B4513", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_ac3b1e0284aabffbdd304d65063e7b80);
+        
+    
+        var popup_8919ac8f5ad5d4290113413cc98ba745 = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_a5b98ba95001da41fe56c83f3911fdeb = $(`<div id="html_a5b98ba95001da41fe56c83f3911fdeb" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #8B4513;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#8B4513;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🍽️ Restaurante farm to table         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Cedrela Eco-Lodge & Restaurante<span style="background:#f39c12;color:white;padding:2px 8px;border-radius:10px;font-size:9px;font-weight:bold;margin-left:5px">⭐ Destacado</span>         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 Copey, Dota, San José</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Ecolodge familiar con restaurante estrictamente farm to table abastecido de huerto propio y productores de la Zona de los Santos. Especialistas en trucha de sus estanques y café local.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Trucha fresca</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Vegetales de huerto</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Café de especialidad</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Repostería artesanal</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Mié–Dom 12:00 – 9:00 pm         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#A0784A;font-weight:bold">             $$$           </span>           · Reserva recomendada         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#ebf5fb;color:#2980b9;border:1px solid #aed6f1;padding:2px 7px;border-radius:10px;font-size:9px">📅 Reserva requerida</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/cedrelaecolodge" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://cedrelaecolodge.com" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#6B7C2E;color:#F5F0E8">🌐 Web</a><a href="https://wa.me/50683743165?text=Hola%2C%20vi%20su%20lugar%20en%20Plato%20Vivo%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#4A5A1F;color:#F5F0E8">💬 WhatsApp</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_8919ac8f5ad5d4290113413cc98ba745.setContent(html_a5b98ba95001da41fe56c83f3911fdeb);
+            
+        
+
+        circle_marker_c9289f925f697ce18c4d825065619934.bindPopup(popup_8919ac8f5ad5d4290113413cc98ba745)
+        ;
+
+        
+    
+    
+            circle_marker_c9289f925f697ce18c4d825065619934.bindTooltip(
+                `<div>
+                     🍽️ Cedrela Eco-Lodge & Restaurante · Copey, Dota, San José
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ccfa479c4ff828e21534359d3ae8f4b9 = L.circleMarker(
+                [10.044, -84.1681],
+                {"bubblingMouseEvents": true, "color": "#5C3317", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8B4513", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_ac3b1e0284aabffbdd304d65063e7b80);
+        
+    
+        var popup_3536b8b7d6d798547bcdb0bc7e30abda = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_8cd73e0b9a20714386a8c5cc91821ee1 = $(`<div id="html_8cd73e0b9a20714386a8c5cc91821ee1" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #8B4513;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#8B4513;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🍽️ Restaurante farm to table         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Jardín Botánico y Restaurante El Arca<span style="background:#f39c12;color:white;padding:2px 8px;border-radius:10px;font-size:9px;font-weight:bold;margin-left:5px">⭐ Destacado</span>         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 Santa Bárbara, Heredia</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Jardín botánico vivo con cientos de especies medicinales y comestibles. Su restaurante ofrece gastronomía botánica farm-to-table cosechada a metros de la mesa con tours guiados del jardín.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Gastronomía botánica</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Tour del jardín</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Plantas en venta</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Cócteles de frutas</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Lun–Dom 9:00 am – 7:30 pm         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#A0784A;font-weight:bold">             $$$           </span>           · Reserva recomendada         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#ebf5fb;color:#2980b9;border:1px solid #aed6f1;padding:2px 7px;border-radius:10px;font-size:9px">📅 Reserva requerida</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/elarcajardinbotanico" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://elarcacostarica.com" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#6B7C2E;color:#F5F0E8">🌐 Web</a><a href="https://wa.me/50688821212?text=Hola%2C%20vi%20su%20lugar%20en%20Plato%20Vivo%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#4A5A1F;color:#F5F0E8">💬 WhatsApp</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_3536b8b7d6d798547bcdb0bc7e30abda.setContent(html_8cd73e0b9a20714386a8c5cc91821ee1);
+            
+        
+
+        circle_marker_ccfa479c4ff828e21534359d3ae8f4b9.bindPopup(popup_3536b8b7d6d798547bcdb0bc7e30abda)
+        ;
+
+        
+    
+    
+            circle_marker_ccfa479c4ff828e21534359d3ae8f4b9.bindTooltip(
+                `<div>
+                     🍽️ Jardín Botánico y Restaurante El Arca · Santa Bárbara, Heredia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_ac3b1e0284aabffbdd304d65063e7b80.addTo(map_aba2e404cd245176ee0dce4e3e9ced64);
+        
+    
+            var feature_group_c3186b711ca12232079ce9011388faa2 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_3b9f4cf12b47b65a50452603c2de8ab5 = L.circleMarker(
+                [9.71, -84.45],
+                {"bubblingMouseEvents": true, "color": "#7A5A32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#A0784A", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_c3186b711ca12232079ce9011388faa2);
+        
+    
+        var popup_d3dd6bbd7de55cd852fb5b9c7eef5ec2 = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_d639802a5309befa1d0cf2e15f683cb2 = $(`<div id="html_d639802a5309befa1d0cf2e15f683cb2" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #A0784A;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#A0784A;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🌱 Experiencia agroecoturismo         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Finca La Iguana Chocolate<span style="background:#f39c12;color:white;padding:2px 8px;border-radius:10px;font-size:9px;font-weight:bold;margin-left:5px">⭐ Destacado</span>         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 Mastatal, Puriscal</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Finca pionera en permacultura y cacao agroforestal. Inmersión auténtica del proceso bean to bar: desde la semilla hasta la barra. Voluntariado, alojamiento rústico y chocolate artesanal.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Tour bean to bar</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Permacultura</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Voluntariado</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Alojamiento rústico</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Lun–Sáb con reserva         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#8B7355;font-weight:bold">             $$           </span>           · Tour desde ₡18.000         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#ebf5fb;color:#2980b9;border:1px solid #aed6f1;padding:2px 7px;border-radius:10px;font-size:9px">📅 Reserva requerida</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/laiguanachocolate" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://laiguanachocolate.com" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#6B7C2E;color:#F5F0E8">🌐 Web</a><a href="https://wa.me/50684088150?text=Hola%2C%20vi%20su%20lugar%20en%20Plato%20Vivo%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#4A5A1F;color:#F5F0E8">💬 WhatsApp</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_d3dd6bbd7de55cd852fb5b9c7eef5ec2.setContent(html_d639802a5309befa1d0cf2e15f683cb2);
+            
+        
+
+        circle_marker_3b9f4cf12b47b65a50452603c2de8ab5.bindPopup(popup_d3dd6bbd7de55cd852fb5b9c7eef5ec2)
+        ;
+
+        
+    
+    
+            circle_marker_3b9f4cf12b47b65a50452603c2de8ab5.bindTooltip(
+                `<div>
+                     🌱 Finca La Iguana Chocolate · Mastatal, Puriscal
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a1da6264d007433596bc3821d40bd3b6 = L.circleMarker(
+                [10.0265, -84.0432],
+                {"bubblingMouseEvents": true, "color": "#7A5A32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#A0784A", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 1.8}
+            ).addTo(feature_group_c3186b711ca12232079ce9011388faa2);
+        
+    
+        var popup_d1773734cde6eaa32dab20105a2b2f24 = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_c227c7eca2741dd7fd88b7b6b7e970fb = $(`<div id="html_c227c7eca2741dd7fd88b7b6b7e970fb" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #A0784A;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#A0784A;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🌱 Experiencia agroecoturismo         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Finca Pinar del Río         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 San Isidro de Heredia</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Finca familiar rodeada de naturaleza con ambiente para un día de campo. Senderos, fresas, moras y flores comestibles. Agroecología y venta directa de cosecha con comida casera.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Senderos</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Fresas y moras</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Flores comestibles</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Comida casera</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Fines de semana con reserva         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#8B7355;font-weight:bold">             $$           </span>           · Día de campo         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#ebf5fb;color:#2980b9;border:1px solid #aed6f1;padding:2px 7px;border-radius:10px;font-size:9px">📅 Reserva requerida</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/pinardelriocr" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://pinardelrio.cr" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#6B7C2E;color:#F5F0E8">🌐 Web</a><a href="https://wa.me/50683204040?text=Hola%2C%20vi%20su%20lugar%20en%20Plato%20Vivo%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#4A5A1F;color:#F5F0E8">💬 WhatsApp</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_d1773734cde6eaa32dab20105a2b2f24.setContent(html_c227c7eca2741dd7fd88b7b6b7e970fb);
+            
+        
+
+        circle_marker_a1da6264d007433596bc3821d40bd3b6.bindPopup(popup_d1773734cde6eaa32dab20105a2b2f24)
+        ;
+
+        
+    
+    
+            circle_marker_a1da6264d007433596bc3821d40bd3b6.bindTooltip(
+                `<div>
+                     🌱 Finca Pinar del Río · San Isidro de Heredia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9db45ee419fa45fc0d2b511c3cd4fb9f = L.circleMarker(
+                [9.9067, -83.6801],
+                {"bubblingMouseEvents": true, "color": "#7A5A32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#A0784A", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 1.8}
+            ).addTo(feature_group_c3186b711ca12232079ce9011388faa2);
+        
+    
+        var popup_40b1a4f4148629269a47099b94e963a0 = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_334857b37f0d3b759c9fb767a4c879b1 = $(`<div id="html_334857b37f0d3b759c9fb767a4c879b1" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #A0784A;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#A0784A;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🌱 Experiencia agroecoturismo         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Agro-Ecoturismo Yhamore         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 Guayabo, Turrialba, Cartago</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Proyecto familiar campesino cerca del Monumento Nacional Guayabo. Integra producción agroecológica con turismo rural. Los visitantes se involucran en prácticas agrícolas sostenibles.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Tour de finca</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Talleres orgánicos</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Comidas tradicionales</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Alojamiento rural</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Lun–Dom con reserva         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#8B7355;font-weight:bold">             $$           </span>           · Paquetes desde ₡20.000         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#ebf5fb;color:#2980b9;border:1px solid #aed6f1;padding:2px 7px;border-radius:10px;font-size:9px">📅 Reserva requerida</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/yhamore_ecoturismo" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://wa.me/50683521438?text=Hola%2C%20vi%20su%20lugar%20en%20Plato%20Vivo%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#4A5A1F;color:#F5F0E8">💬 WhatsApp</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_40b1a4f4148629269a47099b94e963a0.setContent(html_334857b37f0d3b759c9fb767a4c879b1);
+            
+        
+
+        circle_marker_9db45ee419fa45fc0d2b511c3cd4fb9f.bindPopup(popup_40b1a4f4148629269a47099b94e963a0)
+        ;
+
+        
+    
+    
+            circle_marker_9db45ee419fa45fc0d2b511c3cd4fb9f.bindTooltip(
+                `<div>
+                     🌱 Agro-Ecoturismo Yhamore · Guayabo, Turrialba, Cartago
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_47cfce43ccbd046fab3cdaa1e779118b = L.circleMarker(
+                [9.6537, -82.741],
+                {"bubblingMouseEvents": true, "color": "#7A5A32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#A0784A", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_c3186b711ca12232079ce9011388faa2);
+        
+    
+        var popup_56b93a17b4dbb2715aa49fbaa06fafec = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_41d369ae7a5c2584de4e81088f02b292 = $(`<div id="html_41d369ae7a5c2584de4e81088f02b292" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #A0784A;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#A0784A;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🌱 Experiencia agroecoturismo         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Caribeans Chocolate and Coffee<span style="background:#f39c12;color:white;padding:2px 8px;border-radius:10px;font-size:9px;font-weight:bold;margin-left:5px">⭐ Destacado</span>         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 Puerto Viejo, Limón</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Finca orgánica en la costa caribeña con fábrica propia de chocolate. Tour guiado de cacao con conservación de bosque primario, degustación de 15+ tipos de chocolate y café de especialidad.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Tour de cacao</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Chocolate artesanal</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Café local</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Bosque primario</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Lun–Sáb 7:30 am – 6:00 pm         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#8B7355;font-weight:bold">             $$           </span>           · Tour incluido         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#ebf5fb;color:#2980b9;border:1px solid #aed6f1;padding:2px 7px;border-radius:10px;font-size:9px">📅 Reserva requerida</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/caribeanscr" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://caribeanscr.com" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#6B7C2E;color:#F5F0E8">🌐 Web</a><a href="https://wa.me/50627500505?text=Hola%2C%20vi%20su%20lugar%20en%20Plato%20Vivo%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#4A5A1F;color:#F5F0E8">💬 WhatsApp</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_56b93a17b4dbb2715aa49fbaa06fafec.setContent(html_41d369ae7a5c2584de4e81088f02b292);
+            
+        
+
+        circle_marker_47cfce43ccbd046fab3cdaa1e779118b.bindPopup(popup_56b93a17b4dbb2715aa49fbaa06fafec)
+        ;
+
+        
+    
+    
+            circle_marker_47cfce43ccbd046fab3cdaa1e779118b.bindTooltip(
+                `<div>
+                     🌱 Caribeans Chocolate and Coffee · Puerto Viejo, Limón
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_939155c5e77043bd378e69eaa0801584 = L.circleMarker(
+                [10.4373, -84.0459],
+                {"bubblingMouseEvents": true, "color": "#7A5A32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#A0784A", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 1.8}
+            ).addTo(feature_group_c3186b711ca12232079ce9011388faa2);
+        
+    
+        var popup_ebe78add1c7f22d423694fb57832023c = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_fd07b1522cc401b2187e27dfc1ba0f77 = $(`<div id="html_fd07b1522cc401b2187e27dfc1ba0f77" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #A0784A;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#A0784A;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🌱 Experiencia agroecoturismo         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Finca Sura — Sarapiquí         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 Chilamate, Sarapiquí</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Finca que demuestra cultivo de piña y frutas tropicales en armonía con la biodiversidad sin agroquímicos. Tour agrícola con almuerzo típico — reconocido como uno de los mejores de Costa Rica.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Tour piña orgánica</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Pesca artesanal</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Almuerzo típico</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Recorridos ecológicos</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Lun–Vie y Dom 8:00 am – 4:00 pm         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#8B7355;font-weight:bold">             $$           </span>           · Tour + almuerzo         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#ebf5fb;color:#2980b9;border:1px solid #aed6f1;padding:2px 7px;border-radius:10px;font-size:9px">📅 Reserva requerida</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/fincasura" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://fincasura.com" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#6B7C2E;color:#F5F0E8">🌐 Web</a><a href="https://wa.me/50687377901?text=Hola%2C%20vi%20su%20lugar%20en%20Plato%20Vivo%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#4A5A1F;color:#F5F0E8">💬 WhatsApp</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_ebe78add1c7f22d423694fb57832023c.setContent(html_fd07b1522cc401b2187e27dfc1ba0f77);
+            
+        
+
+        circle_marker_939155c5e77043bd378e69eaa0801584.bindPopup(popup_ebe78add1c7f22d423694fb57832023c)
+        ;
+
+        
+    
+    
+            circle_marker_939155c5e77043bd378e69eaa0801584.bindTooltip(
+                `<div>
+                     🌱 Finca Sura — Sarapiquí · Chilamate, Sarapiquí
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2ff2ad02235c63afd7ad399943337977 = L.circleMarker(
+                [10.3878, -84.5975],
+                {"bubblingMouseEvents": true, "color": "#7A5A32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#A0784A", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_c3186b711ca12232079ce9011388faa2);
+        
+    
+        var popup_675b7ba19d5ba8995420bf0233c93d1f = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_b6ca0f7d8580d7187c7cad17f6f50dfc = $(`<div id="html_b6ca0f7d8580d7187c7cad17f6f50dfc" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #A0784A;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#A0784A;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🌱 Experiencia agroecoturismo         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Finca Luna Nueva Lodge<span style="background:#f39c12;color:white;padding:2px 8px;border-radius:10px;font-size:9px;font-weight:bold;margin-left:5px">⭐ Destacado</span>         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 Peñas Blancas, San Ramón, Alajuela</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Proyecto pionero mundial en agricultura biodinámica y regenerativa en bosque lluvioso con certificación orgánica integral. Tour de chocolate, restaurante farm to table y hospedaje.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Tour regenerativo</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Tour de chocolate</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Restaurante farm to table</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Hospedaje</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Lun–Dom 6:00 am – 9:00 pm         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#8B4513;font-weight:bold">             $$$$           </span>           · Reserva requerida         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#ebf5fb;color:#2980b9;border:1px solid #aed6f1;padding:2px 7px;border-radius:10px;font-size:9px">📅 Reserva requerida</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/fincalunanueva" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://fincalunanueva.com" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#6B7C2E;color:#F5F0E8">🌐 Web</a><a href="https://wa.me/50624684006?text=Hola%2C%20vi%20su%20lugar%20en%20Plato%20Vivo%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#4A5A1F;color:#F5F0E8">💬 WhatsApp</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_675b7ba19d5ba8995420bf0233c93d1f.setContent(html_b6ca0f7d8580d7187c7cad17f6f50dfc);
+            
+        
+
+        circle_marker_2ff2ad02235c63afd7ad399943337977.bindPopup(popup_675b7ba19d5ba8995420bf0233c93d1f)
+        ;
+
+        
+    
+    
+            circle_marker_2ff2ad02235c63afd7ad399943337977.bindTooltip(
+                `<div>
+                     🌱 Finca Luna Nueva Lodge · Peñas Blancas, San Ramón, Alajuela
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ec30c4533964859d5b8ac4a5528fb577 = L.circleMarker(
+                [10.4134, -84.7659],
+                {"bubblingMouseEvents": true, "color": "#7A5A32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#A0784A", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_c3186b711ca12232079ce9011388faa2);
+        
+    
+        var popup_bbbebe10d619923b275f17f89096de1f = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_d0736a768615f95e909428e6e45e35c9 = $(`<div id="html_d0736a768615f95e909428e6e45e35c9" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #A0784A;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#A0784A;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🌱 Experiencia agroecoturismo         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Rancho Margot Eco Lodge<span style="background:#f39c12;color:white;padding:2px 8px;border-radius:10px;font-size:9px;font-weight:bold;margin-left:5px">⭐ Destacado</span>         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 El Castillo, Arenal, Alajuela</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Ecosistema fuera de la red eléctrica bajo permacultura estricta. Producen casi toda la comida servida. Tour de finca, restaurante buffet farm to table, lácteos artesanales y hospedaje sostenible.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Tour de permacultura</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Buffet farm to table</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Lácteos artesanales</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Hospedaje</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Lun–Dom todo el día         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#A0784A;font-weight:bold">             $$$           </span>           · Paquetes con hospedaje         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#ebf5fb;color:#2980b9;border:1px solid #aed6f1;padding:2px 7px;border-radius:10px;font-size:9px">📅 Reserva requerida</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/ranchomargot" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://ranchomargot.com" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#6B7C2E;color:#F5F0E8">🌐 Web</a><a href="https://wa.me/50688948080?text=Hola%2C%20vi%20su%20lugar%20en%20Plato%20Vivo%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#4A5A1F;color:#F5F0E8">💬 WhatsApp</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_bbbebe10d619923b275f17f89096de1f.setContent(html_d0736a768615f95e909428e6e45e35c9);
+            
+        
+
+        circle_marker_ec30c4533964859d5b8ac4a5528fb577.bindPopup(popup_bbbebe10d619923b275f17f89096de1f)
+        ;
+
+        
+    
+    
+            circle_marker_ec30c4533964859d5b8ac4a5528fb577.bindTooltip(
+                `<div>
+                     🌱 Rancho Margot Eco Lodge · El Castillo, Arenal, Alajuela
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_c3186b711ca12232079ce9011388faa2.addTo(map_aba2e404cd245176ee0dce4e3e9ced64);
+        
+    
+            var feature_group_82d1c9a53927846288c7be64bcb60f9d = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_0836152a2b7049af2ead87bce4f25ec8 = L.circleMarker(
+                [10.0453, -84.1518],
+                {"bubblingMouseEvents": true, "color": "#323E15", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4A5A1F", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_82d1c9a53927846288c7be64bcb60f9d);
+        
+    
+        var popup_7263851747572c02b621ce94ce0dc003 = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_f2dcf954773037b07fde0a6aacf63875 = $(`<div id="html_f2dcf954773037b07fde0a6aacf63875" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #4A5A1F;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#4A5A1F;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🚜 Finca con venta directa         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Finca Rosa Blanca Coffee Plantation<span style="background:#f39c12;color:white;padding:2px 8px;border-radius:10px;font-size:9px;font-weight:bold;margin-left:5px">⭐ Destacado</span>         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 Santa Bárbara, Heredia</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Exclusiva plantación de café orgánico bajo sombra con compromiso ambiental profundo. Restaurante con productos de huertos regenerativos propios, catas profesionales y hospedaje boutique.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Café orgánico bajo sombra</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Tour de café</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Cata profesional</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Gastronomía sostenible</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Lun–Dom todo el día         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#8B4513;font-weight:bold">             $$$$           </span>           · Reserva recomendada         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#ebf5fb;color:#2980b9;border:1px solid #aed6f1;padding:2px 7px;border-radius:10px;font-size:9px">📅 Reserva requerida</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/fincarosablanca" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://fincarosablanca.com" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#6B7C2E;color:#F5F0E8">🌐 Web</a><a href="https://wa.me/50622699392?text=Hola%2C%20vi%20su%20lugar%20en%20Plato%20Vivo%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#4A5A1F;color:#F5F0E8">💬 WhatsApp</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_7263851747572c02b621ce94ce0dc003.setContent(html_f2dcf954773037b07fde0a6aacf63875);
+            
+        
+
+        circle_marker_0836152a2b7049af2ead87bce4f25ec8.bindPopup(popup_7263851747572c02b621ce94ce0dc003)
+        ;
+
+        
+    
+    
+            circle_marker_0836152a2b7049af2ead87bce4f25ec8.bindTooltip(
+                `<div>
+                     🚜 Finca Rosa Blanca Coffee Plantation · Santa Bárbara, Heredia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_85f6bc7b31a0302ab63a2f8f5122bbd5 = L.circleMarker(
+                [9.6345, -83.9681],
+                {"bubblingMouseEvents": true, "color": "#323E15", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4A5A1F", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 1.8}
+            ).addTo(feature_group_82d1c9a53927846288c7be64bcb60f9d);
+        
+    
+        var popup_3509f2ef689adf7a7b81239f10370a23 = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_f15cfecb18baf3f689ffbab827db68a3 = $(`<div id="html_f15cfecb18baf3f689ffbab827db68a3" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #4A5A1F;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#4A5A1F;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🚜 Finca con venta directa         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Finca Café Sol Naciente         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 Santa María de Dota, San José</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Proyecto cafetalero familiar enfocado en microlotes de alta calidad con respeto ambiental y comercio justo. Tour guiado del proceso completo del café con degustación incluida.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Café de especialidad</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Recorridos guiados</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Degustación</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Venta directa</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Lun–Sáb 9:00 am – 5:00 pm · Coordinar visita         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#8B7355;font-weight:bold">             $$           </span>           · Tour con degustación         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#ebf5fb;color:#2980b9;border:1px solid #aed6f1;padding:2px 7px;border-radius:10px;font-size:9px">📅 Reserva requerida</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/cafesolnaciente" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://wa.me/50686306145?text=Hola%2C%20vi%20su%20lugar%20en%20Plato%20Vivo%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#4A5A1F;color:#F5F0E8">💬 WhatsApp</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_3509f2ef689adf7a7b81239f10370a23.setContent(html_f15cfecb18baf3f689ffbab827db68a3);
+            
+        
+
+        circle_marker_85f6bc7b31a0302ab63a2f8f5122bbd5.bindPopup(popup_3509f2ef689adf7a7b81239f10370a23)
+        ;
+
+        
+    
+    
+            circle_marker_85f6bc7b31a0302ab63a2f8f5122bbd5.bindTooltip(
+                `<div>
+                     🚜 Finca Café Sol Naciente · Santa María de Dota, San José
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f0b0b0c38fe94e7cb95828300b972cbf = L.circleMarker(
+                [9.5924, -83.7916],
+                {"bubblingMouseEvents": true, "color": "#323E15", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4A5A1F", "fillOpacity": 0.88, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_82d1c9a53927846288c7be64bcb60f9d);
+        
+    
+        var popup_a983910f8d086a5874f6f042b17ca911 = L.popup({
+  "maxWidth": 315,
+});
+
+        
+            
+                var html_6ee65f9df6955e84a56995ded57a9ca7 = $(`<div id="html_6ee65f9df6955e84a56995ded57a9ca7" style="width: 100.0%; height: 100.0%;">     <div style="width:295px;font-family:Georgia,serif;color:#2c3e50;padding:4px">        <div style="border-bottom:3px solid #4A5A1F;padding-bottom:8px;margin-bottom:8px">         <p style="margin:0 0 2px;font-size:10px;color:#4A5A1F;                   font-weight:bold;text-transform:uppercase;letter-spacing:0.5px">           🚜 Finca con venta directa         </p>         <h3 style="margin:0 0 3px;font-size:13px;color:#1a1a2e;line-height:1.3">           Finca Boryana — Hongos y Naturaleza<span style="background:#f39c12;color:white;padding:2px 8px;border-radius:10px;font-size:9px;font-weight:bold;margin-left:5px">⭐ Destacado</span>         </h3>         <p style="margin:0;font-size:10px;color:#7f8c8d">📍 San Gerardo de Dota, San José</p>       </div>        <p style="font-size:11px;color:#555;line-height:1.6;margin:0 0 8px">         Finca modelo de regeneración de suelos y agricultura sintrópica en San Gerardo de Dota. Tour de cultivo de hongos shiitake, birdwatching al amanecer y almuerzo con productos de la finca.       </p>        <div style="margin:0 0 8px;display:flex;flex-wrap:wrap;gap:3px">         <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Tour hongos shiitake</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Birdwatching</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Agricultura sintrópica</span> <span style="background:#F0EBE0;color:#5C3317;border:1px solid #C9B99A;padding:2px 8px;border-radius:10px;font-size:10px;font-family:Georgia,serif">Almuerzo de la finca</span>       </div>        <div style="background:#f8f9fa;border-radius:8px;padding:7px;margin-bottom:8px">         <p style="margin:0 0 3px;font-size:11px">           🕐 <b>Horario:</b> Mar–Dom 7:00 am – 3:00 pm         </p>         <p style="margin:0;font-size:11px">           💰 <b>Precio:</b>           <span style="color:#8B7355;font-weight:bold">             $$           </span>           · Tour desde ₡15.000         </p>       </div>        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">         <span style="background:#ebf5fb;color:#2980b9;border:1px solid #aed6f1;padding:2px 7px;border-radius:10px;font-size:9px">📅 Reserva requerida</span>         <span style="background:#fef9e7;color:#d4ac0d;border:1px solid #f9e79f;padding:2px 7px;border-radius:10px;font-size:9px">👨‍👩‍👧 Apto familias</span>       </div>        <div style="display:flex;flex-wrap:wrap;gap:5px">         <a href="https://instagram.com/fincaboryana" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#8B4513;color:#F5F0E8">📷 Instagram</a><a href="https://wa.me/50683932734?text=Hola%2C%20vi%20su%20lugar%20en%20Plato%20Vivo%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" style="display:inline-block;padding:5px 12px;border-radius:20px;text-decoration:none;font-size:11px;font-weight:bold;margin-right:5px;font-family:Georgia,serif;background:#4A5A1F;color:#F5F0E8">💬 WhatsApp</a>       </div>        <p style="margin:10px 0 0;font-size:9px;color:#bdc3c7;text-align:right">         🌿 Plato Vivo · @platovivo.cr       </p>     </div>     </div>`)[0];
+                popup_a983910f8d086a5874f6f042b17ca911.setContent(html_6ee65f9df6955e84a56995ded57a9ca7);
+            
+        
+
+        circle_marker_f0b0b0c38fe94e7cb95828300b972cbf.bindPopup(popup_a983910f8d086a5874f6f042b17ca911)
+        ;
+
+        
+    
+    
+            circle_marker_f0b0b0c38fe94e7cb95828300b972cbf.bindTooltip(
+                `<div>
+                     🚜 Finca Boryana — Hongos y Naturaleza · San Gerardo de Dota, San José
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_82d1c9a53927846288c7be64bcb60f9d.addTo(map_aba2e404cd245176ee0dce4e3e9ced64);
+        
+    
+            var layer_control_02bdd94f2ea2fe1f70974577d20115c8_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_ded1bc0ad587ebf93d40c4d17c93786f,
+                },
+                overlays :  {
+                    "\ud83c\udf3e Feria agroecol\u00f3gica" : feature_group_97e862a35e4c5d288126eabdd4a2ff08,
+                    "\ud83c\udf7d\ufe0f Restaurante farm to table" : feature_group_ac3b1e0284aabffbdd304d65063e7b80,
+                    "\ud83c\udf31 Experiencia agroecoturismo" : feature_group_c3186b711ca12232079ce9011388faa2,
+                    "\ud83d\ude9c Finca con venta directa" : feature_group_82d1c9a53927846288c7be64bcb60f9d,
+                },
+            };
+            let layer_control_02bdd94f2ea2fe1f70974577d20115c8 = L.control.layers(
+                layer_control_02bdd94f2ea2fe1f70974577d20115c8_layers.base_layers,
+                layer_control_02bdd94f2ea2fe1f70974577d20115c8_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_aba2e404cd245176ee0dce4e3e9ced64);
+
+        
+</script>
+</html>
